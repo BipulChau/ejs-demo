@@ -8,8 +8,17 @@ app.set('view engine', 'ejs');
 
 // index page
 app.get('/', (req, res) => {
-  res.render('pages/index');
-})
+  var mascots = [
+    {name: 'Sammy', organization: 'DigitalOcean', birth_year: 2012},
+    {name: 'Tux', organization: 'Linus', birth_year: 1996},
+    {name: 'Moby Dock', organization: 'Docker', birth_year: 2013}
+  ];
+
+  var tagline = "No programming concept is complete without a cute animal mascot.";
+
+  res.render('pages/index', {mascots: mascots, // this code defines an array called mascots and a string called tagline. Next, let's use them in index.js
+    tagline: tagline});
+});
 
 // about page
 app.get('/about', (req, res) => {
